@@ -18,7 +18,7 @@ class Facebook_Actions:
             return str(user_data['id'])
 
         except IOError as err:
-            return str(err)
+            print str(err)
 
 
     def get_posts_date(self,dates,limit):
@@ -36,7 +36,7 @@ class Facebook_Actions:
                     posts_date.append(post)
 
         except IOError as err:
-            return str(err)
+            print str(err)
         
         finally:
             return posts_date
@@ -44,7 +44,6 @@ class Facebook_Actions:
     def comment_on_posts(self,dates):
         user_id = self.get_user_id()
         posts = self.get_posts_date(dates,100)
-        print len(posts)
         for post in posts:
             post_id = post.get('id')
             message = post.get('message')
