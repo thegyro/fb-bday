@@ -6,9 +6,6 @@ import urllib
 import json
 from birthday import Facebook_Actions
 
-template_dir = os.path.join(os.path.dirname(__file__),'templates')
-jinja2_env = jinja2.Environment(loader= jinja2.FileSystemLoader(template_dir),autoescape = True)
-
 class App_Details:
     APP_ID = '<Your App Id Here>'
     APP_SECRET = '<Your App Secret Here>'
@@ -67,5 +64,12 @@ class Birthday(Handler,App_Details):
         f.comment_on_posts(['2014-02-12','2014-02-13'])
         self.render('back.html')
         
-    
-app = webapp2.WSGIApplication([('/',Main),('/token',Token),('/birthday',Birthday)])
+
+def main():
+    template_dir = os.path.join(os.path.dirname(__file__),'templates')
+    jinja2_env = jinja2.Environment(loader= jinja2.FileSystemLoader(template_dir),autoescape = True)
+    app = webapp2.WSGIApplication([('/',Main),('/token',Token),('/birthday',Birthday)])
+
+
+if __name__ == "__main__" :
+    main()
