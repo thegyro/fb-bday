@@ -1,8 +1,8 @@
-#Should write a better condition for checking whether a Facebook friend is wishing me for my birthday.The one below is rough and ugly.
-birthday = ['bday','birthday',"b'day",'Birthday',"B'day",'day']
-happy = ['happy','Happy','happie','HAPPY']
-
 def check_message_birthday(message):
+    #Should write a better condition for checking whether a Facebook friend is wishing me for my birthday.The one below is rough and ugly.
+    birthday = ['bday','birthday',"b'day",'Birthday',"B'day",'day']
+    happy = ['happy','Happy','happie','HAPPY']
+    
     if message:
         for h in happy:
             for b in birthday:
